@@ -1,0 +1,791 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio website complete</title>
+    <!-- =====BOX ICONS===== -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== VARIABLES ===== */
+      :root {
+        --first-color: #ffc2d1;
+        --second-color: #ffa8be;
+        --third-color: #ff85a1;
+        --text-color: #5d2a42;
+        --body-color: #fff0f3;
+        --container-color: #ffccd5;
+        --title-color: #5d2a42;
+      }
+
+      /* ===== BASE ===== */
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.938rem;
+        background-color: var(--body-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul {
+        margin: 0;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* ===== CLASS CSS ===== */
+      .section {
+        padding: 4rem 0 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        color: var(--title-color);
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .section-subtitle {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      /* ===== LAYOUT ===== */
+      .bd-grid {
+        max-width: 1024px;
+        display: grid;
+        grid-template-columns: 100%;
+        column-gap: 2rem;
+        width: calc(100% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+
+      .l-header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: var(--first-color);
+        box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+      }
+
+      /* ===== NAV ===== */
+      .nav {
+        height: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+      }
+
+      @media screen and (max-width: 768px) {
+        .nav__menu {
+          position: fixed;
+          top: 3rem;
+          right: -100%;
+          width: 80%;
+          height: 100%;
+          padding: 2rem;
+          background-color: var(--second-color);
+          transition: 0.5s;
+          border-left: 1px solid rgba(93, 42, 66, 0.1);
+        }
+      }
+
+      .nav__item {
+        margin-bottom: 2rem;
+      }
+
+      .nav__link {
+        color: var(--text-color);
+        font-weight: 600;
+      }
+
+      .nav__link:hover {
+        color: var(--text-color);
+        border-bottom: 2px solid var(--text-color);
+      }
+
+      .nav__logo {
+        color: var(--text-color);
+        font-weight: 700;
+      }
+
+      .nav__toggle {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Active menu */
+      .active {
+        color: var(--text-color);
+        border-bottom: 2px solid var(--text-color);
+      }
+
+      /*=== Show menu ===*/
+      .show {
+        right: 0;
+      }
+
+      /* ===== HOME ===== */
+      .home {
+        height: calc(100vh - 3rem);
+        row-gap: 1rem;
+      }
+
+      .home__data {
+        align-self: center;
+      }
+
+      .home__title {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .home__title-color {
+        color: var(--text-color);
+      }
+
+      .home__social {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .home__social-icon {
+        width: max-content;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        color: var(--text-color);
+      }
+
+      .home__social-icon:hover {
+        color: var(--text-color);
+        opacity: 0.8;
+      }
+
+      .home__img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+      }
+
+      .home__blob {
+        fill: var(--first-color);
+      }
+
+      .home__blob-img {
+        width: 360px;
+      }
+
+      /* ===== BUTTONS ===== */
+      .button {
+        display: inline-block;
+        background-color: var(--third-color);
+        color: #fff;
+        padding: 0.75rem 2.5rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        transition: 0.3s;
+      }
+
+      .button:hover {
+        box-shadow: 0 10px 20px rgba(93, 42, 66, 0.2);
+        background-color: var(--second-color);
+      }
+
+      /* ===== ABOUT ===== */
+      .about__container {
+        row-gap: 2rem;
+        text-align: center;
+      }
+
+      .about__subtitle {
+        margin-bottom: 1rem;
+      }
+
+      .about__img {
+        justify-self: center;
+      }
+
+      .about__img img {
+        width: 200px;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 20px rgba(93, 42, 66, 0.2);
+      }
+
+      /* ===== SKILLS ===== */
+      .skills__container {
+        row-gap: 2rem;
+        text-align: center;
+      }
+
+      .skills__subtitle {
+        margin-bottom: 1rem;
+      }
+
+      .skills__text {
+        margin-bottom: 2rem;
+      }
+
+      .skills__data {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        margin-bottom: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 20px rgba(93, 42, 66, 0.1);
+        background-color: var(--container-color);
+      }
+
+      .skills__icon {
+        font-size: 2rem;
+        margin-right: 1rem;
+        color: var(--text-color);
+      }
+
+      .skills__names {
+        display: flex;
+        align-items: center;
+      }
+
+      .skills__bar {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: var(--third-color);
+        height: 0.25rem;
+        border-radius: 0.5rem;
+        z-index: -1;
+      }
+
+      .skills__html {
+        width: 95%;
+      }
+
+      .skills__css {
+        width: 85%;
+      }
+
+      .skills__js {
+        width: 65%;
+      }
+
+      .skills__ux {
+        width: 85%;
+      }
+
+      .skills__img {
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 20px rgba(93, 42, 66, 0.2);
+      }
+
+      /* ===== WORK ===== */
+      .work__container {
+        justify-items: center;
+        row-gap: 2rem;
+      }
+
+      .work__img {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 20px rgba(93, 42, 66, 0.2);
+      }
+
+      .work__img img {
+        width: 100%;
+        transition: 0.4s;
+      }
+
+      .work__img:hover img {
+        transform: scale(1.1);
+      }
+
+      /* ===== CONTACT ===== */
+      .contact__input {
+        width: 100%;
+        font-size: 0.938rem;
+        font-weight: 600;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: 1.5px solid var(--second-color);
+        outline: none;
+        margin-bottom: 1rem;
+        background-color: var(--container-color);
+        color: var(--text-color);
+      }
+
+      .contact__button {
+        display: block;
+        border: none;
+        outline: none;
+        font-size: 0.938rem;
+        cursor: pointer;
+        margin-left: auto;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background-color: var(--first-color);
+        color: var(--text-color);
+        text-align: center;
+        font-weight: 600;
+        padding: 2rem 0;
+      }
+
+      .footer__title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer__social {
+        margin-bottom: 2rem;
+      }
+
+      .footer__icon {
+        font-size: 1.5rem;
+        color: var(--text-color);
+        margin: 0 1rem;
+      }
+
+      .footer__copy {
+        font-size: 0.75rem;
+      }
+
+      /* ===== MEDIA QUERIES ===== */
+      @media screen and (min-width: 768px) {
+        body {
+          margin: 0;
+        }
+
+        .section {
+          padding-top: 6rem;
+        }
+
+        .section-title {
+          margin-bottom: 3rem;
+        }
+
+        .nav {
+          height: calc(3rem + 1.5rem);
+        }
+
+        .nav__list {
+          display: flex;
+        }
+
+        .nav__item {
+          margin-left: 3rem;
+          margin-bottom: 0;
+        }
+
+        .nav__toggle {
+          display: none;
+        }
+
+        .home {
+          height: 100vh;
+        }
+
+        .home__data {
+          align-self: flex-end;
+        }
+
+        .home__social {
+          padding-top: 0;
+          padding-bottom: 2.5rem;
+          flex-direction: row;
+          align-self: flex-end;
+        }
+
+        .home__social-icon {
+          margin-bottom: 0;
+          margin-right: 2rem;
+        }
+
+        .home__img {
+          width: 450px;
+          bottom: 15%;
+        }
+
+        .about__container,
+        .skills__container {
+          grid-template-columns: repeat(2, 1fr);
+          align-items: center;
+          text-align: initial;
+        }
+
+        .about__img img {
+          width: 300px;
+        }
+
+        .work__container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .contact__form {
+          width: 460px;
+        }
+
+        .contact__inputs {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        .bd-grid {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .home__img {
+          right: 10%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+      <nav class="nav bd-grid">
+        <div>
+          <a href="#" class="nav__logo">Tauseef Mansoori</a>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="#about" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="#skills" class="nav__link">Skills</a>
+            </li>
+            <li class="nav__item">
+              <a href="#work" class="nav__link">Work</a>
+            </li>
+            <li class="nav__item">
+              <a href="#contact" class="nav__link">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main class="l-main">
+      <!--===== HOME =====-->
+      <section class="home bd-grid" id="home">
+        <div class="home__data">
+          <h1 class="home__title">
+            Hi,<br />I'am <span class="home__title-color">Tauseef Mansoori</span><br />
+            Web Designer
+          </h1>
+
+          <a href="#contact" class="button">Contact</a>
+        </div>
+
+        <div class="home__social">
+          <a href="" class="home__social-icon"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+          <a href="" class="home__social-icon"
+            ><i class="bx bxl-behance"></i
+          ></a>
+          <a href="" class="home__social-icon"><i class="bx bxl-github"></i></a>
+        </div>
+
+        <div class="home__img">
+          <svg
+            class="home__blob"
+            viewBox="0 0 479 467"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <mask id="mask0" mask-type="alpha">
+              <path
+                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+              />
+            </mask>
+            <g mask="url(#mask0)">
+              <path
+                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+              />
+              <image
+                class="home__blob-img"
+                x="50"
+                y="60"
+                href="https://i.pinimg.com/736x/e9/fe/c8/e9fec8646cc2c0e6fb3fd94a4b7966a3.jpg"
+              />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <!--===== ABOUT =====-->
+      <section class="about section" id="about">
+        <h2 class="section-title">About</h2>
+
+        <div class="about__container bd-grid">
+          <div class="about__img">
+            <img src="https://i.pinimg.com/736x/7c/45/e4/7c45e44b7239184391f8be81b83b4879.jpg" alt="" />
+          </div>
+
+          <div>
+            <h2 class="about__subtitle">I'am Tauseef Mansoori</h2>
+            <p class="about__text">
+              I’m a passionate Web Designer with 3+ years of experience crafting visually appealing and functional websites. I specialize in UI/UX design, front-end development, and creating responsive layouts that deliver seamless experiences across all devices.
+            </p>
+            <br>
+            <p class="about__text">
+              I believe in clean, elegant designs that prioritize user experience and accessibility. When I'm not designing, you can find me exploring new design trends or contributing to open-source projects.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--===== SKILLS =====-->
+      <section class="skills section" id="skills">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills__container bd-grid">
+          <div>
+            <h2 class="skills__subtitle">Profesional Skills</h2>
+            <p class="skills__text">
+             Creative portfolio web designer specializing in building modern, responsive, and visually appealing websites. Skilled in turning ideas into interactive designs that showcase brands and personal projects with style and functionality
+            </p>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-html5 skills__icon"></i>
+                <span class="skills__name">HTML5</span>
+              </div>
+              <div class="skills__bar skills__html"></div>
+              <div>
+                <span class="skills__percentage">95%</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-css3 skills__icon"></i>
+                <span class="skills__name">CSS3</span>
+              </div>
+              <div class="skills__bar skills__css"></div>
+              <div>
+                <span class="skills__percentage">85%</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-javascript skills__icon"></i>
+                <span class="skills__name">JAVASCRIPT</span>
+              </div>
+              <div class="skills__bar skills__js"></div>
+              <div>
+                <span class="skills__percentage">65%</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxs-paint skills__icon"></i>
+                <span class="skills__name">UX/UI</span>
+              </div>
+              <div class="skills__bar skills__ux"></div>
+              <div>
+                <span class="skills__percentage">85%</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="skills__img" />
+          </div>
+        </div>
+      </section>
+
+      <!--===== WORK =====-->
+      <section class="work section" id="work">
+        <h2 class="section-title">Work</h2>
+
+        <div class="work__container bd-grid">
+          <a href="" class="work__img">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" />
+          </a>
+          <a href="" class="work__img">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" />
+          </a>
+          <a href="" class="work__img">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" />
+          </a>
+          <a href="" class="work__img">
+            <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" />
+          </a>
+          <a href="" class="work__img">
+            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" />
+          </a>
+          <a href="" class="work__img">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" />
+          </a>
+        </div>
+      </section>
+
+      <!--===== CONTACT =====-->
+      <section class="contact section" id="contact">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact__container bd-grid">
+  <form action="https://formspree.io/f/mdkwzbwe" method="POST" class="contact__form">
+    <input type="text" name="name" placeholder="Name" class="contact__input" required />
+    <input type="email" name="email" placeholder="Email" class="contact__input" required />
+    <textarea name="message" placeholder="Message" class="contact__input" required></textarea>
+    <input type="submit" value="Send" class="contact__button button" />
+  </form>
+</div>
+</section>
+</main>
+
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+      <p class="footer__title">Tauseef Mansoori</p>
+      <div class="footer__social">
+        <!-- Facebook -->
+    <a href="https://www.facebook.com/share/1EsLtjgM37/"
+       target="_blank" rel="noopener noreferrer"
+       class="footer__icon bx bxl-facebook"></a>
+        
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/oeoxh?igsh=MW56YmoxcWpmNWFwOA=="
+       target="_blank" rel="noopener noreferrer"
+       class="footer__icon bx bxl-instagram"></a>
+
+    <!-- Gmail -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tauseefmahmudabad@gmail.com"
+       target="_blank" rel="noopener noreferrer"
+       class="footer__icon bx bx-envelope"></a>
+  </div>
+
+  <p class="footer__copy">&#169; 2025 All rights reserved</p>
+</footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script>
+      /*===== MENU SHOW =====*/
+      const showMenu = (toggleId, navId) => {
+        const toggle = document.getElementById(toggleId),
+          nav = document.getElementById(navId);
+
+        if (toggle && nav) {
+          toggle.addEventListener("click", () => {
+            nav.classList.toggle("show");
+          });
+        }
+      };
+      showMenu("nav-toggle", "nav-menu");
+
+      /*===== ACTIVE AND REMOVE MENU =====*/
+      const navLink = document.querySelectorAll(".nav__link");
+
+      function linkAction() {
+        /*Active link*/
+        navLink.forEach((n) => n.classList.remove("active"));
+        this.classList.add("active");
+
+        /*Remove menu mobile*/
+        const navMenu = document.getElementById("nav-menu");
+        navMenu.classList.remove("show");
+      }
+      navLink.forEach((n) => n.addEventListener("click", linkAction));
+
+      /*===== SCROLL REVEAL ANIMATION =====*/
+      const sr = ScrollReveal({
+        origin: "top",
+        distance: "80px",
+        duration: 2000,
+        reset: true,
+      });
+
+      /*SCROLL HOME*/
+      sr.reveal(".home__title", {});
+      sr.reveal(".home__social-icon", { delay: 200 });
+      sr.reveal(".button", { delay: 200 });
+
+      /*SCROLL ABOUT*/
+      sr.reveal(".about__img", {});
+      sr.reveal(".about__subtitle", { delay: 400 });
+      sr.reveal(".about__text", { delay: 400 });
+
+      /*SCROLL SKILLS*/
+      sr.reveal(".skills__subtitle", {});
+      sr.reveal(".skills__text", {});
+      sr.reveal(".skills__data", { interval: 200 });
+      sr.reveal(".skills__img", { delay: 600 });
+
+      /*SCROLL WORK*/
+      sr.reveal(".work__img", { interval: 200 });
+
+      /*SCROLL CONTACT*/
+      sr.reveal(".contact__input", { interval: 200 });
+    </script>
+  </body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
